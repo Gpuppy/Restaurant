@@ -35,12 +35,14 @@
             <li><a href="#">Contact</a></li>
         </div>
 
-
-
         <img class="logo"
              src = "https://dewey.tailorbrands.com/production/brand_version_mockup_image/866/8046671866_44d318d5-0f1d-4e48-bd5e-1b7fcea1ec36.png?cb=1673474665" alt="logo">
 
-        <a href="Connexion.html" class="Connexion">Connexion</a>
+        <div class="connexion">
+                <a href="{{ path('app_register') }}" class="Register">S'inscrire</a>
+
+        <a href="{{ path('app_login') }}" class="Login">Se connecter</a>
+        </div>
     </div>
 </header>
 <main>
@@ -66,9 +68,6 @@
                     Risus nec feugiat in fermentum posuere urna. Tincidunt augue interdum velit euismod in pellentesque massa placerat. Nam at lectus urna duis convallis
                     convallis tellus. Nunc vel risus commodo viverra maecenas accumsan lacus vel facilisis. Tellus pellentesque eu tincidunt tortor. Felis eget nunc
                     lobortis mattis.
-
-
-
             </div>
         </div>
     </div>
@@ -80,7 +79,6 @@
         <div class = "favoris"><h2>Les plats favoris</h2></div>
 
         <div class="content">
-
 
             <figure>
                 <a href = "#">
@@ -144,17 +142,9 @@
     </div>
     </div>
 
-
 </footer>
 
-
-
-
-
-
-
 {% block title %}{% endblock %}
-
 
 <style>
     body
@@ -164,8 +154,6 @@
         padding:0px;
         background-image: url(Images/pexels-oruri-jacome-9482636.jpg);
         width: 100%;
-
-
     }
 
     .nav-bar
@@ -180,8 +168,8 @@
 
     .nav-bar img
     {
-        height:7em;
-
+        height:8em;
+        margin-left:60px;
     }
 
     .nav-bar a
@@ -203,15 +191,11 @@
         font-family: 'Noto Sans JP', sans-serif;
         font-size:0.5em ;
         margin:5px
-
     }
-    .bar {
-
+    .bar
+    {
         transition:0.4s;
-
     }
-
-
 
     .bar-1 {
 
@@ -234,7 +218,6 @@
         transition:0.4s;
     }
 
-
     .bar-3 {
 
         width:5em;
@@ -243,13 +226,12 @@
         border-top: 4px solid black;
         padding-top:5px;
         transition:0.4s;
-
     }
 
     .menu
     {
         height:100%;
-        width:100%;
+        width:50%;
         flex-direction: column;
         justify-content:space-between ;
         color:black;
@@ -257,18 +239,14 @@
         display:none;
         transition: 0.5s;
         z-index: 9999;
-
-
     }
     .menu li
     {
-
         text-decoration: none;
         list-style:none;
         padding-top:3em;
         padding-bottom:3em;
         backdrop-filter: blur(20px);
-
     }
 
     .menu li a
@@ -276,22 +254,30 @@
         color:blue;
     }
 
+    .connexion
+    {
+        display: flex;
+        font-size:15px;
+    }
 
-
-    .Connexion
+    .Login, .Register
     {
         display:flex;
         align-items:center;
         color:black;
-
-
     }
-    .Connexion:hover
+
+    .Login:hover
     {
         transform: scale(1.1);
     }
 
-    .burger-menu, .Connexion {
+    .Register:hover
+    {
+        transform: scale(1.1);
+    }
+
+    .burger-menu, .Login, .Register {
         transition:transform 2s;
     }
 
@@ -304,7 +290,6 @@
     {
         width:30px;
         height: 30px;
-
     }
 
     .logo
@@ -331,7 +316,6 @@
         width : 700px;
         margin: 20px;
         object-fit: contain;
-
     }
 
 
@@ -339,14 +323,12 @@
     {
         display:flex;
         margin: 30px;
-
     }
 
     h1
     {
         display:flex;
         justify-content:center;
-
     }
 
     .section
@@ -361,7 +343,6 @@
         justify-content: center;
         width: 100px;
         height:100px;
-
     }
 
     img.V-logo
@@ -379,14 +360,12 @@
     }
 
     /*aside*/
-
     .aside
     {
         display: flex;
         flex-wrap: wrap;
 
     }
-
 
     .favoris
     {
@@ -397,7 +376,6 @@
         font-size: large;
         font-weight: 300;
         background-color: bisque;
-
     }
 
     .content
@@ -411,7 +389,6 @@
         margin-bottom: 70px;
     }
 
-
     figure img
     {
         display:flex;
@@ -423,12 +400,10 @@
         box-shadow:10em;
     }
 
-
     .content h3
     {
         display:flex;
         justify-content: center;
-
     }
 
     a:link
@@ -446,9 +421,7 @@
     .map
     {
         display:flex;
-
     }
-
 
     .address
     {
@@ -456,7 +429,6 @@
         justify-content: center;
         flex-direction:center;
         width:500px;
-
     }
 
     .address-horaires
@@ -483,7 +455,6 @@
         margin: auto;
     }
 
-
     .site-footer
     {
         display: flex;
@@ -491,13 +462,11 @@
         background-color: bisque;
         height: 100px;
         width:100%;
-
     }
 
     .site-footer .logo
     {
         height:100px;
-
     }
 
     .socials
@@ -507,24 +476,20 @@
         height: 100px;
     }
 
-
     @media screen and (max-width: 900px)
     {
 
         .nav-bar a
         {
-
             font-size: 1.2em; /*25px; */
             margin-left: 4px;
             margin-right: 4px;
         }
 
-
         .Menu
         {
             font-size: 0.5em
         }
-
 
         .meal1
         {
@@ -532,14 +497,11 @@
             width : 15em;
             margin: 20px;
             object-fit: contain;
-
         }
         .section
         {
-
             height:600px;
             display: none;
-
         }
 
         .intro
@@ -557,8 +519,6 @@
         {
             display: block;
             height:600px ;
-            /*width: 600px;*/
-
         }
 
         .content
@@ -571,20 +531,16 @@
             margin-left: 20%;
         }
 
-
-
         figure img
         {
             width:100%;
             height:100%;
-
         }
 
         figure
         {
             width: 200px;
             height:auto;
-
         }
 
         .map .iframe
@@ -607,7 +563,6 @@
             font-size: 10em;
         }
 
-
         .address-horaires h5
         {
             font-size:6em;
@@ -627,13 +582,11 @@
             width:60%;
             min-height: auto;
             font-size: 0.1em;
-
         }
 
         .site-footer
         {
             height: 60px;
-
         }
         .site-footer .logo
         {
@@ -645,25 +598,19 @@
         {
             height:10px;
 
-
         }
 
         .socials
         {
             height: auto;
-
         }
 
         .socials img
         {
-
             height:40px;
-
         }
 
     }
-
-
 
 </style>
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -675,12 +622,7 @@
 
     });
 </script>
-
-
 </body>
 </html>
-
-
-
 
 {% endblock %}
