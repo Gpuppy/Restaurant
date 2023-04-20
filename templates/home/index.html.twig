@@ -1,0 +1,686 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet" href = "Style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Sofia+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Roboto:wght@100&family=Sofia+Sans&display=swap" rel="stylesheet">
+
+    <title>Restaurant</title>
+</head>
+
+<body>
+<header>
+    <div class = "nav-bar">
+
+        <div class="burger-menu">
+            <div class="bar">
+                <span class="bar-1"> </span>
+                <span class="bar-2"> </span>
+                <span class="bar-3"> </span>
+            </div>
+        </div>
+
+        <div class="menu">
+            <li><a href="index2.html" target="_self">La carte</a></li>
+            <li><a href="Reservation.html">Réservation</a></li>
+            <li><a href="#">Contact</a></li>
+        </div>
+
+
+
+        <img class="logo"
+             src = "https://dewey.tailorbrands.com/production/brand_version_mockup_image/866/8046671866_44d318d5-0f1d-4e48-bd5e-1b7fcea1ec36.png?cb=1673474665" alt="logo">
+
+        <a href="Connexion.html" class="Connexion">Connexion</a>
+    </div>
+</header>
+<main>
+    <div class = "main">
+
+        <div class = "section">
+            <img class = "meal1"  src = "Images/pexels-ella-olsson-1640772.jpg" alt ="meal1">
+        </div>
+
+        <div class="article">
+            <div class = "Intro">
+
+                <h1>Le meilleur de la cuisine végétale</h1>
+
+                <img class = "V-logo" src = Images/vegan.png alt ="V-logo">
+
+                <p id = "Lorem-ipsum"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu turpis egestas
+                    pretium aenean pharetra magna ac placerat. Risus at ultrices mi tempus imperdiet nulla malesuada. Vel turpis nunc eget lorem dolor sed viverra ipsum
+                    nunc. Leo vel orci porta non pulvinar neque laoreet suspendisse. Eget nullam non nisi est sit amet facilisis. Egestas fringilla phasellus faucibus
+                    scelerisque eleifend donec. Sed elementum tempus egestas sed sed risus. A cras semper auctor neque vitae tempus quam pellentesque nec. In est ante
+                    in nibh mauris cursus mattis molestie. Sit amet luctus venenatis lectus. Pellentesque habitant morbi tristique senectus et.
+
+                    Risus nec feugiat in fermentum posuere urna. Tincidunt augue interdum velit euismod in pellentesque massa placerat. Nam at lectus urna duis convallis
+                    convallis tellus. Nunc vel risus commodo viverra maecenas accumsan lacus vel facilisis. Tellus pellentesque eu tincidunt tortor. Felis eget nunc
+                    lobortis mattis.
+
+
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<aside>
+
+    <div class = "aside">
+        <div class = "favoris"><h2>Les plats favoris</h2></div>
+
+        <div class="content">
+
+
+            <figure>
+                <a href = "#">
+                    <img src= "Images/pexels-grooveland-designs-3607284(4).jpg" alt="" style="width:100%"  >
+                    <figcaption><h3>Le burger Tofu</h3></figcaption></a>
+            </figure>
+
+            <figure>
+                <a href = "#">
+                    <img src="Images/pexels-shameel-mukkath-5640015.jpg" alt=""  style="width:100%">
+                    <figcaption><h3>La pizza VG</h3></figcaption></a>
+            </figure>
+
+
+            <figure>
+                <a href = "#">
+                    <img src="Images/pexels-klaus-nielsen-6287527.jpg" alt=""  style="width:100%">
+                    <figcaption><h3>Les nouilles Chinoise</h3></figcaption></a>
+            </figure>
+
+
+        </div>
+    </div>
+
+</aside>
+
+<div class ="map">
+
+    <div class ="iframe">
+        <iframe width="130%" iframe scrolling="no" marginheight="0" marginwidth="0"
+                src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(Emy%20and%20Tom)&amp;
+                t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="70%" height= "300" frameborder="0">
+            <a href="https://www.maps.ie/distance-area-calculator.html">distance maps</a></iframe>
+    </div>
+
+    <div class="address-horaires">
+        <h4> Emy et Tom </h4>
+        <h5> 4 Rue de la Poterie,
+            02120 Marly-Gomont </h5>
+        <img class = "V-logo" src = Images/vegan.png alt ="V-logo">
+
+        <h5> Mardi au Samedi 12h00-14h00
+            19h00-22h00</h5>
+
+    </div>
+</div>
+
+<footer class="site-footer">
+
+    <div class="site-footer-logo">
+        <img class="logo"
+             src = "https://dewey.tailorbrands.com/production/brand_version_mockup_image/866/8046671866_44d318d5-0f1d-4e48-bd5e-1b7fcea1ec36.png?cb=1673474665" alt="logo">
+    </div>
+    <div class="socials">
+        <div class="facebook">
+            <a href="#"><img src="Images/facebook.png" alt="facebook"></a>
+        </div>
+        <div class="instagram">
+            <a href="#"><img src="Images/instagram.png" alt="Instagram" ></a>
+        </div>
+    </div>
+    </div>
+
+
+</footer>
+
+
+
+
+
+
+
+{% block title %}{% endblock %}
+
+
+<style>
+    body
+    {
+        font-family: ;
+        margin:0px;
+        padding:0px;
+        background-image: url(Images/pexels-oruri-jacome-9482636.jpg);
+        width: 100%;
+
+
+    }
+
+    .nav-bar
+    {
+        background-color: bisque;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        height: 120px ;
+        width: 100%;
+    }
+
+    .nav-bar img
+    {
+        height:7em;
+
+    }
+
+    .nav-bar a
+    {
+        display:flex;
+        width: auto;
+        height: 50px;
+        text-decoration:none;
+        font-family: ;
+        font-size: 1.5em;
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+
+    .burger-menu
+    {
+        display: flex;
+        justify-content: center;
+        font-family: 'Noto Sans JP', sans-serif;
+        font-size:0.5em ;
+        margin:5px
+
+    }
+    .bar {
+
+        transition:0.4s;
+
+    }
+
+
+
+    .bar-1 {
+
+        width:5em;
+        display: block;
+        width: 40px;
+        border-top: 4px solid black;
+        padding-top:6px;
+        cursor:pointer;
+        transition:0.4s;
+    }
+
+    .bar-2 {
+        width:5em;
+        display: block;
+        width: 40px;
+        border-top: 4px solid black;
+        padding-top:5px;
+        display:fixed;
+        transition:0.4s;
+    }
+
+
+    .bar-3 {
+
+        width:5em;
+        display: block;
+        width: 40px;
+        border-top: 4px solid black;
+        padding-top:5px;
+        transition:0.4s;
+
+    }
+
+    .menu
+    {
+        height:100%;
+        width:100%;
+        flex-direction: column;
+        justify-content:space-between ;
+        color:black;
+        text-align: center;
+        display:none;
+        transition: 0.5s;
+        z-index: 9999;
+
+
+    }
+    .menu li
+    {
+
+        text-decoration: none;
+        list-style:none;
+        padding-top:3em;
+        padding-bottom:3em;
+        backdrop-filter: blur(20px);
+
+    }
+
+    .menu li a
+    {
+        color:blue;
+    }
+
+
+
+    .Connexion
+    {
+        display:flex;
+        align-items:center;
+        color:black;
+
+
+    }
+    .Connexion:hover
+    {
+        transform: scale(1.1);
+    }
+
+    .burger-menu, .Connexion {
+        transition:transform 2s;
+    }
+
+    .burger-menu:hover
+    {
+        transform: scale(1.1);
+    }
+
+    .burger-menu > img
+    {
+        width:30px;
+        height: 30px;
+
+    }
+
+    .logo
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-items: baseline;
+        height: 150px;
+
+    }
+
+    /*main*/
+
+    .main
+    {
+        display:flex;
+        margin:30px;
+    }
+
+    .meal1
+    {
+        height: 700px;
+        width : 700px;
+        margin: 20px;
+        object-fit: contain;
+
+    }
+
+
+    .intro
+    {
+        display:flex;
+        margin: 30px;
+
+    }
+
+    h1
+    {
+        display:flex;
+        justify-content:center;
+
+    }
+
+    .section
+    {
+        display: flex;
+        justify-content: center;
+    }
+
+    .V-logo
+    {
+        display:block;
+        justify-content: center;
+        width: 100px;
+        height:100px;
+
+    }
+
+    img.V-logo
+    {
+        display:block;
+        justify-content: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    p
+    {
+        font-family:'Caveat', cursive;
+        font-size:1.6em /*25px*/;
+    }
+
+    /*aside*/
+
+    .aside
+    {
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+
+
+    .favoris
+    {
+        display:flex;
+        justify-content:center;
+        height:70px;
+        width: 100%;
+        font-size: large;
+        font-weight: 300;
+        background-color: bisque;
+
+    }
+
+    .content
+    {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content:space-evenly;
+        width: 100%;
+        height: 400px;
+        margin-top: 70px;
+        margin-bottom: 70px;
+    }
+
+
+    figure img
+    {
+        display:flex;
+        justify-content: space-around;
+        height:300px;
+        width: 300px;
+        object-fit: contain;
+        border-radius:5%;
+        box-shadow:10em;
+    }
+
+
+    .content h3
+    {
+        display:flex;
+        justify-content: center;
+
+    }
+
+    a:link
+    {
+        text-decoration: none;
+    }
+
+    .iframe
+    {
+        display: flex;
+        width: auto;
+        margin-left:1em ;
+        margin-bottom: 5em ;/*100px;*/
+    }
+    .map
+    {
+        display:flex;
+
+    }
+
+
+    .address
+    {
+        display: flex;
+        justify-content: center;
+        flex-direction:center;
+        width:500px;
+
+    }
+
+    .address-horaires
+    {
+        display:flex;
+        justify-content:space-evenly;
+        flex-direction: column;
+        margin-bottom: 30px;
+        width:70%;
+        min-height: auto;
+    }
+
+    .address-horaires h4{
+        display: flex;
+        justify-content: center;
+        font-size:xx-large;
+        margin-bottom: auto;
+    }
+
+    .address-horaires h5{
+        display: flex;
+        justify-content: center;
+        font-size:x-large;
+        margin: auto;
+    }
+
+
+    .site-footer
+    {
+        display: flex;
+        justify-content:space-between;
+        background-color: bisque;
+        height: 100px;
+        width:100%;
+
+    }
+
+    .site-footer .logo
+    {
+        height:100px;
+
+    }
+
+    .socials
+    {
+        display:flex;
+        align-items:center;
+        height: 100px;
+    }
+
+
+    @media screen and (max-width: 900px)
+    {
+
+        .nav-bar a
+        {
+
+            font-size: 1.2em; /*25px; */
+            margin-left: 4px;
+            margin-right: 4px;
+        }
+
+
+        .Menu
+        {
+            font-size: 0.5em
+        }
+
+
+        .meal1
+        {
+            height: 15em;
+            width : 15em;
+            margin: 20px;
+            object-fit: contain;
+
+        }
+        .section
+        {
+
+            height:600px;
+            display: none;
+
+        }
+
+        .intro
+        {
+            display:flex;
+            justify-content: center;
+        }
+
+        p
+        {
+            font-size:1em ;
+        }
+
+        .aside
+        {
+            display: block;
+            height:600px ;
+            /*width: 600px;*/
+
+        }
+
+        .content
+        {
+            display: block;
+            flex-direction: column;
+            height: 450px;
+            margin-top:2%;
+            margin-bottom:20%;
+            margin-left: 20%;
+        }
+
+
+
+        figure img
+        {
+            width:100%;
+            height:100%;
+
+        }
+
+        figure
+        {
+            width: 200px;
+            height:auto;
+
+        }
+
+        .map .iframe
+        {
+            size: 20%;
+            width:40%;
+            margin-top:5px;
+            margin-bottom:0px;
+            margin-left: 0px;
+            object-fit:contain;
+        }
+
+        h3
+        {
+            font-size:0.8em;
+        }
+
+        .address-horaires h4
+        {
+            font-size: 10em;
+        }
+
+
+        .address-horaires h5
+        {
+            font-size:6em;
+            justify-content:flex-end;
+        }
+
+        .V-logo
+        {
+            width: 50px;
+            height:50px;
+        }
+
+        .address-horaires
+        {
+            margin-bottom: 30px;
+            margin-left: 25px;
+            width:60%;
+            min-height: auto;
+            font-size: 0.1em;
+
+        }
+
+        .site-footer
+        {
+            height: 60px;
+
+        }
+        .site-footer .logo
+        {
+            height:60px ;
+            flex-direction: center;
+        }
+
+        .site-footer .logo img
+        {
+            height:10px;
+
+
+        }
+
+        .socials
+        {
+            height: auto;
+
+        }
+
+        .socials img
+        {
+
+            height:40px;
+
+        }
+
+    }
+
+
+
+</style>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+    $(".burger-menu ").on("click",".bar",function(){
+        $(".menu").slideToggle();
+        $(".bar").toggleClass('change');
+        $(".menu li").slideDown();
+
+    });
+</script>
+
+
+</body>
+</html>
+
+
+
+
+{% endblock %}
