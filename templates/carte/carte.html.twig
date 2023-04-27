@@ -1,0 +1,175 @@
+{% extends 'home/index.html.twig' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Roboto:wght@100&family=Sofia+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Sofia+Sans&display=swap" rel="stylesheet">
+    <title>La carte</title>
+</head>
+<body>
+<div class = "nav-bar">
+    <img class="logo"
+         src = "https://dewey.tailorbrands.com/production/brand_version_mockup_image/866/8046671866_44d318d5-0f1d-4e48-bd5e-1b7fcea1ec36.png?cb=1673474665" alt="logo">
+</div>
+<h1>La Carte sur place</h1>
+
+<h2> Nos Entrées </h2>
+<table>
+    <tbody>
+    <tr>
+        <td>Salade De Légumes</td>
+        <td>15€</td>
+    </tr>
+    <tr>
+        <td>Salade César</td>
+        <td>10€</td>
+    </tr>
+    <tr>
+        <td>Salade de melon</td>
+        <td>5€</td>
+    </tr>
+    <td>Salade Thai croquante au quinoa et sauce aux cacahuètes</td>
+    <td>7€</td>
+    </tr>
+    </tbody>
+</table>
+
+<h2> Les Plats </h2>
+<table>
+    <tbody>
+    <tr>
+        <td>Le Burger Tofu</td>
+        <td>12€</td>
+    </tr>
+    <tr>
+        <td>La Pizza VG</td>
+        <td>12€</td>
+    </tr>
+    <tr>
+        <td>Les Nouilles Chinoises</td>
+        <td>12€</td>
+    </tr>
+    <tr>
+        <td>Curry au soja accompagné de riz basmati</td>
+        <td>15€</td>
+    </tr>
+    </tbody>
+</table>
+<h2> Les Desserts </h2>
+<table>
+    <tbody>
+    <tr>
+        <td>Café Gourmand</td>
+        <td>5€</td>
+    </tr>
+    <tr>
+        <td>Salade de fruit et une boule de glace</td>
+        <td>7€</td>
+    </tr>
+    <tr>
+        <td>Brownie</td>
+        <td>4€</td>
+    </tr>
+    <tr>
+        <td>Cookie</td>
+        <td>3€</td>
+    </tr>
+    </tbody>
+</table>
+
+<style>
+    body
+    {
+        /*font-family*/
+        background-image: url(Images/pexels-oruri-jacome-9482636.jpg);
+        margin:0px;
+        padding:0px;
+        width: 100%;
+    }
+
+    .nav-bar
+    {
+        background-color: bisque;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height: 250px ;
+        width: 100%;
+    }
+
+    h1, h2
+    {
+        display:flex ;
+        justify-content: center;
+        color:aliceblue;
+    }
+
+    table
+    {
+        width:1200px;
+        margin-left:200px;
+        margin-top: 50px;
+    }
+
+    td
+    {
+        font-family:'Caveat', cursive ;
+        font-size: 30px;
+        font-weight: 500;
+    }
+
+    @media screen and (max-width:900px)
+    {
+
+        body
+        {
+            width:100%;
+            margin-left: 0px;
+        }
+
+        .nav-bar
+        {
+            width:600px;
+            justify-content: center;
+        }
+
+        img
+        {
+            display: flex;
+            justify-content: center;
+        }
+
+        h1, h2
+        {
+            display: flex;
+            justify-content: center;
+            width:600px;
+        }
+
+        tbody
+        {
+            width:600px;
+        }
+
+        tr
+        {
+            width:600px;
+        }
+
+        table
+        {
+            width:600px;
+            margin-left: 0%;
+            margin-right:10%;
+        }
+    }
+
+</style>
+</body>
+</html>
+
+{% endblock %}

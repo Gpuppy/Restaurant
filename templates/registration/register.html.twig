@@ -5,46 +5,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Sofia+Sans&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Roboto:wght@100&family=Sofia+Sans&display=swap" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <title>Restaurant</title>
 </head>
-<body>
-<img class="logo"
-     src = "https://dewey.tailorbrands.com/production/brand_version_mockup_image/866/8046671866_44d318d5-0f1d-4e48-bd5e-1b7fcea1ec36.png?cb=1673474665" alt="logo">
+<body class = "text-center">
+<main class="form-register w-25 m-auto">
+<img class= "mb-4" src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/866/8046671866_44d318d5-0f1d-4e48-bd5e-1b7fcea1ec36.png?cb=1673474665" alt="logo" >
 
-</body>
-{% block title %}Register{% endblock %}
 
 {% block body %}
-
+    <form method="post">
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
+    <!--h1 class="h3 mb-3 fw-normal">Register</h1-->
 
-        <h1>Register</h1>
 
-       {{ form_start(registrationForm) }}
+    <div class="registrationForm.email mb-2 w-100">
+              {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}
+    </div>
 
-        {{ form_row(registrationForm.plainPassword, {
+        <div>
+
+    {{ form_row(registrationForm.plainPassword , {
             label: 'Password'
         }) }}
+
+
     {{ form_row(registrationForm.agreeTerms) }}
 
-    <button type ="submit" class="btn">Register</button>
+        </div>
+    <button type ="submit" class="w-100 btn btn-lg btn-info">Register</button>
     {{ form_end(registrationForm) }}
-    <style>
-        h1
-        {
+    </form>
 
-        }
-    </style>
+</main>
+</body>
+</html>
+
 {% endblock %}
+
+
