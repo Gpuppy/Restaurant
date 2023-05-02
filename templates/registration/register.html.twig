@@ -28,24 +28,23 @@
 
     <!--h1 class="h3 mb-3 fw-normal">Register</h1-->
 
-
-    <div class="registrationForm.email mb-2 w-100">
-              {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-    </div>
+        <div class="registrationForm.email mb-2 w-100">
+        {{form_start(registrationForm)}}
+        {{form_row(registrationForm.email)}}
+        </div>
 
         <div>
+            {{form_row(registrationForm.plainPassword,{
+                label:'Password'
+            })}}
 
-    {{ form_row(registrationForm.plainPassword , {
-            label: 'Password'
-        }) }}
 
-
-    {{ form_row(registrationForm.agreeTerms) }}
+            {{form_row(registrationForm.agreeTerms)}}
 
         </div>
-    <button type ="submit" class="w-100 btn btn-lg btn-info">Register</button>
-    {{ form_end(registrationForm) }}
+            <button type="submit" class="w-100 btn btn-lg btn-info">Register</button>
+            {{form_end(registrationForm)}}
+
     </form>
 
 </main>

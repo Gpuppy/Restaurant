@@ -1,0 +1,168 @@
+warning: in the working copy of '.env', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'config/packages/framework.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'config/packages/messenger.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'config/packages/reset_password.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'config/packages/security.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docker-compose.yml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'symfony.lock', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'templates/base.html.twig', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/.env b/.env[m
+[1mindex 6a42dc3..c5a1569 100644[m
+[1m--- a/.env[m
+[1m+++ b/.env[m
+[36m@@ -16,7 +16,7 @@[m
+ [m
+ ###> symfony/framework-bundle ###[m
+ APP_ENV=dev[m
+[31m-APP_SECRET=5dd76e254f5ee4dee4439a5158d89e8c[m
+[32m+[m[32mAPP_SECRET=e50319a395227359d3b6ac7df88b93e1[m
+ ###< symfony/framework-bundle ###[m
+ [m
+ ###> doctrine/doctrine-bundle ###[m
+[36m@@ -25,17 +25,16 @@[m [mAPP_SECRET=5dd76e254f5ee4dee4439a5158d89e8c[m
+ #[m
+ # DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"[m
+ # DATABASE_URL="mysql://app:!ChangeMe!@127.0.0.1:3306/app?serverVersion=8&charset=utf8mb4"[m
+[31m-DATABASE_URL="mysql://root@127.0.0.1:3306/Restaurant"[m
+[32m+[m[32mDATABASE_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=15&charset=utf8"[m
+ ###< doctrine/doctrine-bundle ###[m
+ [m
+[32m+[m[32m###> symfony/mailer ###[m
+[32m+[m[32m# MAILER_DSN=null://null[m
+[32m+[m[32m###< symfony/mailer ###[m
+[32m+[m
+ ###> symfony/messenger ###[m
+ # Choose one of the transports below[m
+ # MESSENGER_TRANSPORT_DSN=amqp://guest:guest@localhost:5672/%2f/messages[m
+ # MESSENGER_TRANSPORT_DSN=redis://localhost:6379/messages[m
+ MESSENGER_TRANSPORT_DSN=doctrine://default?auto_setup=0[m
+ ###< symfony/messenger ###[m
+[31m-[m
+[31m-###> symfony/mailer ###[m
+[31m-# MAILER_DSN=null://null[m
+[31m-MAILER_DSN=smtp://a5dc2d0c9a4d6c:6c56c42f643a9c@sandbox.smtp.mailtrap.io:2525?encryption=tls&auth_mode=login[m
+[31m-###< symfony/mailer ###[m
+[1mdiff --git a/.fly/FlySymfonyRuntime.php b/.fly/FlySymfonyRuntime.php[m
+[1mindex e69de29..591ee47 100644[m
+[1m--- a/.fly/FlySymfonyRuntime.php[m
+[1m+++ b/.fly/FlySymfonyRuntime.php[m
+[36m@@ -0,0 +1,9 @@[m
+[32m+[m[32mclass FlySymfonyRuntime extends SymfonyRuntime[m
+[32m+[m[32m{[m
+[32m+[m[32mpublic function __construct(array $options = [])[m
+[32m+[m[32m{[m
+[32m+[m[32m$options['disable_dotenv'] = true;[m
+[32m+[m
+[32m+[m[32mparent::__construct($options);[m
+[32m+[m[32m}[m
+[32m+[m[32m}[m
+[1mdiff --git a/.idea/vcs.xml b/.idea/vcs.xml[m
+[1mindex 9f83dae..36b0254 100644[m
+[1m--- a/.idea/vcs.xml[m
+[1m+++ b/.idea/vcs.xml[m
+[36m@@ -2,6 +2,7 @@[m
+ <project version="4">[m
+   <component name="VcsDirectoryMappings">[m
+     <mapping directory="" vcs="Git" />[m
+[32m+[m[32m    <mapping directory="$PROJECT_DIR$/getting-started" vcs="Git" />[m
+     <mapping directory="$PROJECT_DIR$/symfony-docker" vcs="Git" />[m
+     <mapping directory="$PROJECT_DIR$/symfony-docker/hello-fly" vcs="Git" />[m
+   </component>[m
+[1mdiff --git a/composer.json b/composer.json[m
+[1mindex 7e9e052..e9ddf6a 100644[m
+[1m--- a/composer.json[m
+[1m+++ b/composer.json[m
+[36m@@ -106,7 +106,8 @@[m
+     "extra": {[m
+         "symfony": {[m
+             "allow-contrib": false,[m
+[31m-            "require": "6.1.*"[m
+[32m+[m[32m            "require": "6.1.*",[m
+[32m+[m[32m            "docker": true[m
+         }[m
+     }[m
+ }[m
+[1mdiff --git a/config/packages/framework.yaml b/config/packages/framework.yaml[m
+[1mindex b5d13dd..7853e9e 100644[m
+[1m--- a/config/packages/framework.yaml[m
+[1m+++ b/config/packages/framework.yaml[m
+[36m@@ -3,7 +3,6 @@[m [mframework:[m
+     secret: '%env(APP_SECRET)%'[m
+     #csrf_protection: true[m
+     http_method_override: false[m
+[31m-    trusted_proxies: '127.0.0.1,REMOTE_ADDR'[m
+ [m
+     # Enables session support. Note that the session will ONLY be started if you read or write from it.[m
+     # Remove or comment this section to explicitly disable session support.[m
+[36m@@ -23,5 +22,3 @@[m [mwhen@test:[m
+         test: true[m
+         session:[m
+             storage_factory_id: session.storage.factory.mock_file[m
+[31m-[m
+[31m-[m
+[1mdiff --git a/config/packages/messenger.yaml b/config/packages/messenger.yaml[m
+[1mindex 6342860..672b6c4 100644[m
+[1m--- a/config/packages/messenger.yaml[m
+[1m+++ b/config/packages/messenger.yaml[m
+[36m@@ -1,24 +1,22 @@[m
+ framework:[m
+     messenger:[m
+[31m-        failure_transport: failed[m
+[32m+[m[32m        # Uncomment this (and the failed transport below) to send failed messages to this transport for later handling.[m
+[32m+[m[32m        # failure_transport: failed[m
+ [m
+         transports:[m
+             # https://symfony.com/doc/current/messenger.html#transport-configuration[m
+[31m-            async:[m
+[31m-                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'[m
+[31m-                options:[m
+[31m-                    use_notify: true[m
+[31m-                    check_delayed_interval: 60000[m
+[31m-                retry_strategy:[m
+[31m-                    max_retries: 3[m
+[31m-                    multiplier: 2[m
+[31m-            failed: 'doctrine://default?queue_name=failed'[m
+[32m+[m[32m            # async: '%env(MESSENGER_TRANSPORT_DSN)%'[m
+[32m+[m[32m            # failed: 'doctrine://default?queue_name=failed'[m
+             # sync: 'sync://'[m
+ [m
+         routing:[m
+[31m-            #Symfony\Component\Mailer\Messenger\SendEmailMessage: async[m
+[31m-            Symfony\Component\Notifier\Message\ChatMessage: async[m
+[31m-            Symfony\Component\Notifier\Message\SmsMessage: async[m
+[31m-[m
+             # Route your messages to the transports[m
+             # 'App\Message\YourMessage': async[m
+[32m+[m
+[32m+[m[32m# when@test:[m
+[32m+[m[32m#    framework:[m
+[32m+[m[32m#        messenger:[m
+[32m+[m[32m#            transports:[m
+[32m+[m[32m#                # replace with your transport name here (e.g., my_transport: 'in-memory://')[m
+[32m+[m[32m#                # For more Messenger testing tools, see https://github.com/zenstruck/messenger-test[m
+[32m+[m[32m#                async: 'in-memory://'[m
+[1mdiff --git a/config/packages/reset_password.yaml b/config/packages/reset_password.yaml[m
+[1mindex 796ff0c..bd37a3a 100644[m
+[1m--- a/config/packages/reset_password.yaml[m
+[1m+++ b/config/packages/reset_password.yaml[m
+[36m@@ -1,2 +1,5 @@[m
+ symfonycasts_reset_password:[m
+[31m-    request_password_repository: App\Repository\ResetPasswordRequestRepository[m
+[32m+[m[32m    # Replace symfonycasts.reset_password.fake_request_repository with the full[m
+[32m+[m[32m    # namespace of the password reset request repository after it has been created.[m
+[32m+[m[32m    # i.e. App\Repository\ResetPasswordRequestRepository[m
+[32m+[m[32m    request_password_repository: symfonycasts.reset_password.fake_request_repository[m
+[1mdiff --git a/config/packages/security.yaml b/config/packages/security.yaml[m
+[1mindex 7bda630..367af25 100644[m
+[1m--- a/config/packages/security.yaml[m
+[1m+++ b/config/packages/security.yaml[m
+[36m@@ -4,23 +4,14 @@[m [msecurity:[m
+         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'[m
+     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider[m
+     providers:[m
+[31m-        # used to reload user from session & other features (e.g. switch_user)[m
+[31m-        app_user_provider:[m
+[31m-            entity:[m
+[31m-                class: App\Entity\User[m
+[31m-                property: email[m
+[32m+[m[32m     

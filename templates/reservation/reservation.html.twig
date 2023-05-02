@@ -1,0 +1,115 @@
+{% extends 'home/index.html.twig' %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation</title>
+</head>
+<body>
+    <header>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu turpis egestas
+            pretium aenean pharetra magna ac placerat. Risus at ultrices mi tempus imperdiet nulla malesuada. Vel turpis nunc eget lorem dolor</p>
+        <div class ="select-bar">
+            <label for = "nombre-de-couverts">Nombre de couverts</label>
+            <select id = "nombre-de-couverts">
+            <option>2 couverts</option>
+            <option>3 couvert</option>
+            <option>4 couverts</option>
+            <option>5 couverts</option>
+            <option>6 couverts</option>
+            <option>7 couverts</option>
+            <option>8 couverts</option>
+        </select>
+        <label for = "date"></label>
+        <input type ="date" id="date" name="" value="18/02/2023" min="" max="">
+        </div>
+    </header>
+    <main>
+        <div class="time-scale">
+            <p>Midi</p>
+            <div class="midi">
+            <input type = "button" value= "12.00">
+            <input type = "button" value= "12.30">
+            <input type = "button" value= "13.00">
+            <input type = "button" value= "13.30">
+        </div>
+        <p>Soir</p>
+        <div class= "soir">
+            <input type = "button" value= "19h00" a href="#">
+            <input type = "button" value= "19h15">
+            <input type = "button" value= "19h30">
+            <input type = "button" value= "19h45">
+        </div>
+        </div>
+
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src = "jQuery.js"></script>
+    <script src= "Script.js"></script>
+    <style>
+
+        body
+        {
+            background-image: url(Images/pexels-oruri-jacome-9482636.jpg);
+            margin:0px;
+            padding:0px;
+            width: 100%;
+        }
+
+        p
+        {
+            margin-top: 70px;
+        }
+
+        .select-bar
+        {
+            display: flex;
+            justify-content:space-between;
+            width:50%;
+            margin-left:200px ;
+            border-bottom:1px black solid;
+        }
+
+        #nombre-de-couverts, #date
+        {
+            width:200px;
+            height:40px;
+        }
+
+        .time-scale
+        {
+            display:block;
+            justify-content: center;
+            margin-top:50px;
+        }
+
+        .time-scale input
+        {
+            background-color: brown;
+            width:100px ;
+            height: 40px;
+            margin:10px;
+        }
+
+        .midi, .soir
+        {
+            display: flex;
+            justify-content: center;
+        }
+
+        .time-scale p
+        {
+            display: flex;
+            justify-content: center;
+        }
+
+</style>
+</body>
+</html>
+
+{% endblock %}
