@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/getting-started" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/restaurant-table-reservation-system" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/symfony-docker" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/symfony-docker/hello-fly" vcs="Git" />
   </component>
