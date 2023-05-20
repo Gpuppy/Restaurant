@@ -10,6 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
+use Vich\UploaderBundle\Form\TYPE\VichFileType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Vich\UploaderBundle\Handler\UploadHandler;
 use Vich\UploaderBundle\Mapping\PropertyMappingFactory;
@@ -36,10 +37,10 @@ class MealImageType extends AbstractController
 
     }
 
-     public function configureOptions(OptionsResolver $resolver) : void
-     {
-         $resolver->setDefaults([
-             'data_class' => Meals::class,
-         ]);
-     }
+    public function configureOptions(OptionsResolver $resolver) : void
+    {
+        $resolver->setDefaults([
+            'data_class' => Meals::class,
+        ]);
     }
+}

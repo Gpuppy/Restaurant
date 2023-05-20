@@ -4,9 +4,12 @@ namespace App\Entity;
 
 use App\Repository\MealsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
+#[UniqueEntity('name')]
+#[ORM\HasLifecycleCallbacks]
 #[ORM\Entity(repositoryClass: MealsRepository::class)]
 #[Vich\Uploadable]
 class Meals
