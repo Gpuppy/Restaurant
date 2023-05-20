@@ -25,10 +25,10 @@ class MealsCrudController extends AbstractCrudController
     {
         yield TextField::new('name');
 
-        yield TextField::new('imageFile')->setFormType(VichImageType::class)->hideOnIndex();;
+        yield TextField::new('imageFile') /*->setFormType(VichImageType::class)->hideOnIndex();*/ ;
 
-        yield TextField::new('imageSize')->hideOnForm();
-        yield ImageField::new('imageName')->setBasePath('/images/meals')->hideOnForm();
+        yield TextField::new('imageSize') /*->hideOnForm() */;
+        yield ImageField::new('imageName') /*->setBasePath('/images/meals')->hideOnForm()*/;
         yield DateTimeField::new('createdAt');
         yield MoneyField::new('price')->setCurrency('EUR');
         //yield ImageField::new('imageFile')->setUploadDir('meals');
