@@ -17,7 +17,17 @@ class BookingController extends AbstractController
     public function index(BookingRepository $bookingRepository): Response
     {
         return $this->render('booking/calendar.html.twig', [
-            'bookings' => $bookingRepository->findAll(),
+            'bookings' => $bookingRepository->findAll()
+
+       /* $appointments = [];
+            foreach ($bookings as $booking){
+                $appointments[] = [
+                  'title' => $booking -> getId(),
+                  'beginAt' => $booking -> getBeginAt()->format('Y-m-d H:i:s'),
+                  'endAt' => $booking -> getEndAt('Y-m-d H:i:s'),
+
+                ]
+            }*/
         ]);
     }
 
@@ -81,4 +91,6 @@ class BookingController extends AbstractController
     {
         return $this->render('booking/calendar.html.twig');
     }
+
+
 }

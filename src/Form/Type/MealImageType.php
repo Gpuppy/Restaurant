@@ -39,7 +39,7 @@ class MealImageType extends AbstractController
      public function configureOptions(OptionsResolver $resolver) : void
      {
          $resolver->setDefaults([
-             'data_class' => Meals::class
+             'data_class' => Meals::class,
          ]);
      }
     }

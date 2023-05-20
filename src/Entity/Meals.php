@@ -22,18 +22,14 @@ class Meals
     private ?string $image = null;
 
     #[ORM\Column(type: 'string', nullable: true)]
-    #[Vich\UploadableField(mapping: 'images/meals', fileNameProperty: 'imageName', size: 'imageSize')]
-    private ?string $imageFile = null;
+    #[Vich\UploadableField(mapping: 'meals', fileNameProperty: 'imageName', size: 'imageSize')]
+    private ?File $imageFile = null;
 
     #[ORM\Column(nullable: true)]
     private ?string $imageName = null;
 
     #[ORM\Column(nullable: true)]
     private ?int $imageSize = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $updatedAt = null;
-
 
     #[ORM\ManyToOne(inversedBy: 'images')]
     #[ORM\JoinColumn(nullable: false)]
@@ -51,11 +47,9 @@ class Meals
     #[ORM\Column]
     private ?int $file = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
      * of 'UploadedFile' is injected into this setter to trigger the update. If this
@@ -75,22 +69,11 @@ class Meals
             $this->updatedAt = new \DateTimeImmutable();
         }
     }
+
     public function getImageFile(): ?File
     {
         return $this->imageFile;
     }
-
-    public function __construct()
-    {
-        $this->createdAt = new \DateTime('now');
-        $this->modifiedAt = new \DateTime('now');
-
-    }
-
-    /*public function getFile(): ?File
-    {
-        return $this->File;
-    }*/
 
     public function setImageName(?string $imageName): void
     {
@@ -111,6 +94,20 @@ class Meals
     {
         return $this->imageSize;
     }
+
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime('now');
+        $this->modifiedAt = new \DateTime('now');
+
+    }
+
 
     public function getName(): ?string
     {

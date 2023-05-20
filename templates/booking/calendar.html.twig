@@ -1,4 +1,57 @@
 {% extends 'base.html.twig' %}
+{% block html %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<!-- Start popup dialog box -->
+<div class="modal fade" id="event_entry_modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Add New Event</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="img-container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="event_name">Event name</label>
+                                <input type="text" name="event_name" id="event_name" class="form-control" placeholder="Enter your event name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="event_start_date">Event start</label>
+                                <input type="date" name="event_start_date" id="event_start_date" class="form-control onlydatepicker" placeholder="Event start date">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="event_end_date">Event end</label>
+                                <input type="date" name="event_end_date" id="event_end_date" class="form-control" placeholder="Event end date">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="save_event()">Save Event</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End popup dialog box -->
+{% endblock %}
 
 {% block body %}
     <a href="{{ path('app_booking_new') }}">Create new booking</a>
@@ -19,6 +72,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.1.0/main.min.js"></script>
 
     <script type="text/javascript">
+
         document.addEventListener('DOMContentLoaded', () => {
             var calendarEl = document.getElementById('calendar-holder');
 
@@ -43,7 +97,31 @@
                     right: 'dayGridMonth,timeGridWeek,timeGridDay',
                 },
                 plugins: [ 'interaction', 'dayGrid', 'timeGrid' ], // https://fullcalendar.io/docs/plugin-index
-                timeZone: 'UTC',
+                selectable: true,
+                locale:'fr',
+                timeZone: 'Europe/Paris',
+                businessHours:
+                    start: '12:00',
+                    end: '14:00',
+                    dow: [1, 2, 3, 4, 5]
+
+                allDaySlot: false,
+                buttonText: {
+                    today:'Aujourd\'hui',
+                    month: 'Mois',
+                    week: 'Semaine',
+                    day: 'Jour',
+                    /*events : [{
+                        "title" : "Déjeuner ",
+                        "start" : "2023-05-19T12:00:00",
+                        "end" : "2024-05-19T12:00:00"
+                    },{
+                        "title" : "Dinner ",
+                        "start" : "2023-05-19T07:00:00",
+                        "end" : "2024-05-19T09:30:00"
+                    }],*/
+
+                                }
             });
             calendar.render();
         });
