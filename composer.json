@@ -111,8 +111,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.1.*",
-            start: "node index.js",
-        }
+            "require": "6.1.*"
+                    }
     }
 }
