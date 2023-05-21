@@ -96,7 +96,8 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "start": "node index.js"
         },
         "post-install-cmd": [
             "@auto-scripts"
@@ -112,6 +113,7 @@
         "symfony": {
             "allow-contrib": false,
             "require": "6.1.*"
-                    }
+                    },
+        "proxy": "http://localhost:8000"
     }
 }
