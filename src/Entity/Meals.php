@@ -6,7 +6,9 @@ use App\Repository\MealsRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
+use Vich\TestBundle\Entity\Image;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 #[UniqueEntity('name')]
 #[ORM\HasLifecycleCallbacks]
@@ -25,8 +27,14 @@ class Meals
     private ?string $image = null;
 
     #[ORM\Column(type: 'string', nullable: true)]
-    #[Vich\UploadableField(mapping: 'meals', fileNameProperty: 'imageName', size: 'imageSize')]
+    #[Vich\UploadableField(mapping: 'meals_images', fileNameProperty: 'imageName', size: 'imageSize')]
     private ?File $imageFile = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $createdAt;
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
 
     #[ORM\Column(nullable: true)]
     private ?string $imageName = null;
@@ -50,8 +58,8 @@ class Meals
     #[ORM\Column]
     private ?int $file = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $updatedAt = null;
+
+    private ?\DateTime $modifiedAt;
 
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
@@ -98,19 +106,21 @@ class Meals
         return $this->imageSize;
     }
 
+    public function __construct()
+    {
+        $this->createdAt = new \DateTimeImmutable();
+        $this->updatedAt = new \DateTimeImmutable();
+    }
+    #[ORM\PrePersist()]
+    public function setUpdatedAtValue()
+    {
+        $this->updatedAt = new \DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
-
-    public function __construct()
-    {
-        $this->createdAt = new \DateTime('now');
-        $this->modifiedAt = new \DateTime('now');
-
-    }
-
 
     public function getName(): ?string
     {
@@ -148,4 +158,31 @@ class Meals
         return $this;
     }
 
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
     }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeImmutable $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+
+
+
+}

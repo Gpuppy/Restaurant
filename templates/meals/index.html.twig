@@ -10,7 +10,9 @@
 <div class="example-wrapper">
     <h1>Nos differents plats ✅</h1>
 
-{{ form_row(form.imageFile) }}
+<div class = meals_image>
+        <img src="{{ asset(vich_uploader_asset(meal,'imageFile','AppBundle\Entity\Meals'))}} alt="image 1"  >
+</div>
 
 </div>
 {% endblock %}
