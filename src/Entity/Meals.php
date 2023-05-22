@@ -27,7 +27,7 @@ class Meals
     private ?string $image = null;
 
     #[ORM\Column(type: 'string', nullable: true)]
-    #[Vich\UploadableField(mapping: 'meals_images', fileNameProperty: 'imageName', size: 'imageSize')]
+    #[Vich\UploadableField(mapping: 'meals', fileNameProperty: 'imageName', size: 'imageSize')]
     private ?File $imageFile = null;
 
     #[ORM\Column(nullable: true)]
@@ -112,7 +112,7 @@ class Meals
         $this->updatedAt = new \DateTimeImmutable();
     }
     #[ORM\PrePersist()]
-    public function setUpdatedAtValue()
+    public function setUpdatedAtValue(): void
     {
         $this->updatedAt = new \DateTimeImmutable();
     }

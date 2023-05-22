@@ -81,6 +81,20 @@
     </tbody>
 </table>
 
+<footer class="site-footer">
+
+    <div class="address-horaires">
+           <h4>Le Quai Antique</h4>
+
+        <h5> 4 Rue de la Poterie,
+            73000 Chambery </h5>
+        <img class = "V-logo" src = Images/vegan.png alt ="V-logo">
+
+        <h5> Mardi au Samedi 12h00-14h00
+            19h00-22h00</h5>
+    </div>
+</footer>
+
 <style>
     body
     {
@@ -121,6 +135,30 @@
         font-size: 30px;
         font-weight: 500;
     }
+    .site-footer
+    {
+       display:flex;
+        background-color: bisque;
+        justify-content: center;
+        height:300px;
+    }
+
+    .address-horaires h4
+    {
+        display:flex;
+        justify-content:center;
+        flex-direction: column;
+        width:70%;
+
+    }
+
+    h5, h4
+    {
+        display:flex;
+        justify-content: center;
+        text-align: right;
+    }
+
 
     @media screen and (max-width:900px)
     {

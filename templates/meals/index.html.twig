@@ -11,8 +11,25 @@
     <h1>Nos differents plats ✅</h1>
 
 <div class = meals_image>
-        <img src="{{ asset(vich_uploader_asset(meal.images,'imageFile','AppBundle\Entity\Meals'))}} alt="image 1"  >
-</div>
 
+        <img src=' {{ asset(vich_uploader_asset(meals,'imageFile'))}} ' alt="">
+
+</div>
+    {% block footer %}
+    <footer class="site-footer">
+
+        <div class="address-horaires">
+            <h4>Le Quai Antique</h4>
+
+            <h5> 4 Rue de la Poterie,
+                73000 Chambery </h5>
+            <img class = "V-logo" src = Images/vegan.png alt ="V-logo">
+
+            <h5> Mardi au Samedi 12h00-14h00
+                19h00-22h00</h5>
+        </div>
+    </footer>
+
+    {% endblock %}
 </div>
 {% endblock %}
