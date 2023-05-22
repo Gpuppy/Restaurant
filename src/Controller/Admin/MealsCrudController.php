@@ -30,7 +30,7 @@ class MealsCrudController extends AbstractCrudController
         yield ImageField::new('imageName')->setBasePath('meals/images')->hideOnForm();
         yield DateTimeField::new('createdAt');
         yield MoneyField::new('price')->setCurrency('EUR');
-        yield ImageField::new('imageFile')->setUploadDir('meals');
+
 
     }
 
