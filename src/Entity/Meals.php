@@ -4,63 +4,34 @@ namespace App\Entity;
 
 use App\Repository\MealsRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
-use Vich\TestBundle\Entity\Image;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use  DateTimeImmutable;
 
-
-#[UniqueEntity('name')]
-#[ORM\HasLifecycleCallbacks]
 #[ORM\Entity(repositoryClass: MealsRepository::class)]
 #[Vich\Uploadable]
 class Meals
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[ORM\GeneratedValue]
     private ?int $id = null;
 
-// NOTE: This is not a mapped field of entity metadata, just a simple property.
+    // ... other fields
 
-    #[ORM\Column(length: 255, nullable: true)]
-    public ?string $images = null;
-
-    #[ORM\Column(type: 'string', nullable: true)]
+    // NOTE: This is not a mapped field of entity metadata, just a simple property.
     #[Vich\UploadableField(mapping: 'meals', fileNameProperty: 'imageName', size: 'imageSize')]
     private ?File $imageFile = null;
 
     #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $createdAt;
-
-    #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $updatedAt = null;
-
+    private ?string $meals = null;
     #[ORM\Column(nullable: true)]
     private ?string $imageName = null;
 
     #[ORM\Column(nullable: true)]
     private ?int $imageSize = null;
 
-    #[ORM\ManyToOne(inversedBy: 'images')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?meals $meals = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
-
-    #[ORM\Column]
-    private ?int $price = null;
-
-    #[ORM\Column]
-    private ?int $date = null;
-
-    #[ORM\Column]
-    private ?int $file = null;
-
-
-    private ?\DateTime $modifiedAt;
+    #[ORM\Column(nullable: false)]
+    private ?\DateTimeImmutable $updatedAt = null;
 
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
@@ -106,93 +77,24 @@ class Meals
     {
         return $this->imageSize;
     }
-
-    public function __construct()
+    /**
+     * @return \DateTimeImmutable|null
+     */
+    public function setUpdatedAt(): ?\DateTimeImmutable
     {
-        $this->createdAt = new \DateTimeImmutable();
-        $this->updatedAt = new \DateTimeImmutable();
+        return $this->updatedAt;
     }
-    #[ORM\PrePersist()]
-    public function setUpdatedAtValue(): void
-    {
-        $this->updatedAt = new \DateTimeImmutable();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    public function getPrice(): ?int
-    {
-        return $this->price;
-    }
-
-    public function setPrice(int $price): self
-    {
-        $this->price = $price;
-
-        return $this;
-    }
-
-    public function getDate(): ?int
-    {
-        return $this->date;
-    }
-
-    public function setDate(int $date): self
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
+    /**
+     * @return \DateTimeImmutable|null
+     */
     public function getUpdatedAt(): ?\DateTimeImmutable
     {
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeImmutable $updatedAt): self
+    public function getMeals(): ?string
     {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
+        return $this->meals;
     }
-
-    public function getImage(?string $image): Meals
-    {
-        $this->image = $image;
-        return $this;
-    }
-    public function setImage(?string $image): Meals
-    {
-        $this->image = $image;
-        return $this;
-    }
-
 
 }
