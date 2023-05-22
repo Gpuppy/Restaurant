@@ -8,6 +8,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\TestBundle\Entity\Image;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use  DateTimeImmutable;
 
 
 #[UniqueEntity('name')]
@@ -24,7 +25,7 @@ class Meals
 // NOTE: This is not a mapped field of entity metadata, just a simple property.
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $image = null;
+    public ?string $images = null;
 
     #[ORM\Column(type: 'string', nullable: true)]
     #[Vich\UploadableField(mapping: 'meals', fileNameProperty: 'imageName', size: 'imageSize')]
@@ -182,7 +183,16 @@ class Meals
         return $this;
     }
 
-
+    public function getImage(?string $image): Meals
+    {
+        $this->image = $image;
+        return $this;
+    }
+    public function setImage(?string $image): Meals
+    {
+        $this->image = $image;
+        return $this;
+    }
 
 
 }

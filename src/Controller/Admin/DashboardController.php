@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Booking;
 use App\Entity\Meals;
+use App\Entity\MealsImage;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
