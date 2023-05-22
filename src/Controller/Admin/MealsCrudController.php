@@ -35,11 +35,12 @@ class MealsCrudController extends AbstractCrudController
     }
 
 
-    public function configureCrud(Crud $crud): Crud
+    /*public function configureCrud(Crud $crud): Crud
     {
         return $crud
             ->setEntityLabelInSingular('Meals')
             ->setDateFormat('a DateTimeImmutable object)');
-    }
+    }*/
+
 
 }

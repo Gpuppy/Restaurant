@@ -10,15 +10,15 @@
 <div class="example-wrapper">
     <h1>Nos differents plats ✅</h1>
 
-<div class = meals_image>
+    <div class = meals_image>
 
 
+        <img src=' {{ asset(vich_uploader_asset(meals,'imageFile'))}} ' alt="">
+
+        <img src="{{ asset(image_url) }}">
 
 
-        <img src="{{ asset(image_url) }}"/>
-
-
-</div>
+    </div>
     {% block footer %}
     <footer class="site-footer">
 
