@@ -21,13 +21,13 @@ class MealsCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        //yield TextField::new('name');
+        yield TextField::new('name');
 
         yield TextareaField::new('imageFile')->setFormType(VichImageType::class)->hideOnIndex();
         yield TextField::new('imageSize')->hideOnForm() ;
         yield ImageField::new('imageName')->setBasePath('meals/images')->hideOnForm();
-        yield DateTimeField::new('updatedAt');
-        //yield MoneyField::new('price')->setCurrency('EUR');
+        yield DateTimeField::new('createdAt');
+        yield MoneyField::new('price')->setCurrency('EUR');
 
 
     }

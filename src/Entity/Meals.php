@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\MealsRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints\Date;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: MealsRepository::class)]
@@ -16,9 +18,6 @@ class Meals
     #[ORM\GeneratedValue]
     private ?int $id = null;
 
-    // ... other fields
-
-    // NOTE: This is not a mapped field of entity metadata, just a simple property.
     #[Vich\UploadableField(mapping: 'meals', fileNameProperty: 'imageName', size: 'imageSize')]
     private ?File $imageFile = null;
 
@@ -30,7 +29,16 @@ class Meals
     #[ORM\Column(nullable: true)]
     private ?int $imageSize = null;
 
-    #[ORM\Column(nullable: false)]
+    #[ORM\Column(nullable: true)]
+    private ?date $createdAt = null;
+
+    #[ORM\Column]
+    private ?int $price = null;
+
+    #[ORM\Column]
+    private ?int $date = null;
+
+    #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
 
     /**
@@ -77,16 +85,13 @@ class Meals
     {
         return $this->imageSize;
     }
-    /**
-     * @return \DateTimeImmutable|null
-     */
+
     public function setUpdatedAt(): ?\DateTimeImmutable
     {
         return $this->updatedAt;
     }
-    /**
-     * @return \DateTimeImmutable|null
-     */
+
+
     public function getUpdatedAt(): ?\DateTimeImmutable
     {
         return $this->updatedAt;
@@ -97,4 +102,16 @@ class Meals
         return $this->meals;
     }
 
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime('now');
+
+    }
+
+    public function getPrice(): ?int
+    {
+        return $this->price;
+    }
+
 }
+
