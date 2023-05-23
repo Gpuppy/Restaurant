@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints\Date;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\DBAL\Types\Types;
+use function Webmozart\Assert\Tests\StaticAnalysis\integer;
 
 #[ORM\Entity(repositoryClass: MealsRepository::class)]
 #[Vich\Uploadable]
@@ -48,6 +49,7 @@ class Meals
     private ?int $date = null;
 
 
+    //public $timestamps = false;
 
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
@@ -65,7 +67,7 @@ class Meals
         if (null !== $imageFile) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
-            $this->updatedAt = new \DateTime('now');
+            $this->updated_at = new \DateTimeImmutable('now');
         }
     }
 
@@ -95,15 +97,6 @@ class Meals
         return $this->imageSize;
     }
 
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updated_at;
-    }
-    public function setUpdatedAt(?\DateTimeImmutable $updated_at): self
-    {
-        $this->updated_at = $updated_at;
-        return $this;
-    }
 
 
     public function getMeals(): ?string
@@ -135,9 +128,20 @@ class Meals
     }
 
 
-    public function setCreatedAt(?\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(?\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
+        return $this;
+    }
+
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+    public function setUpdatedAt(?\DateTimeImmutable $updated_at): self
+    {
+        $this->updated_at = $updated_at;
         return $this;
     }
 
