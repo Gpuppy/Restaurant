@@ -18,3 +18,7 @@ Afin de pouvoir exécuter l'application sur votre poste, vous devez d'aborder in
  
 ### Xampp
   1. Suivre https://www.apachefriends.org/fr/download.html
+
+### EasyAdmin
+
+  1. Download the Easyadmin bundle and follow instructions https://symfony.com/bundles/EasyAdminBundle/current/index.html
