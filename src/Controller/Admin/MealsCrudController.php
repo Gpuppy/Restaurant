@@ -21,10 +21,9 @@ class MealsCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        yield TextField::new('title');
-
+        /*yield TextareaField::new('title');*/
         yield TextareaField::new('imageFile')->setFormType(VichImageType::class)->hideOnIndex();
-        yield TextField::new('imageSize')->hideOnForm() ;
+        //yield TextField::new('imageSize')->hideOnForm() ;
         yield ImageField::new('imageName')->setBasePath('meals/images')->hideOnForm();
         yield DateTimeField ::new('created_at');
         yield MoneyField::new('price')->setCurrency('EUR');

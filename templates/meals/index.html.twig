@@ -2,21 +2,65 @@
 
 {% block title %}Hello MealsController!{% endblock %}
 
+
 {% block body %}
-<style>
-
-</style>
-
-<div class="example-wrapper">
-    <h1>Nos differents plats ✅</h1>
-
-    <div class = meals_image>
-
-        <img src=' {{ asset(vich_uploader_asset(meals,'imageFile'))}} ' alt="meal">
 
 
-    </div>
-    {% block footer %}
+
+    <figure>
+        <a href = "#">
+            <img src= "Images/Salade de legumes.webp" alt="" style="width:100%"  >
+            <figcaption><h3>Salade Nicoise</h3></figcaption></a>
+    </figure>
+
+    <figure>
+        <a href = "#">
+            <img src="Images/pexels-photo-257816.webp" alt=""  style="width:100%">
+            <figcaption><h3>Salade Caesar</h3></figcaption></a>
+    </figure>
+
+
+    <figure>
+        <a href = "#">
+            <img src="Images/pexels-photo-1640770.jpeg" alt=""  style="width:100%">
+            <figcaption><h3>Salade de melon</h3></figcaption></a>
+    </figure>
+    <figure>
+        <a href = "#">
+            <img src= "Images/pexels-grooveland-designs-3607284(4).jpg" alt="" style="width:100%"  >
+            <figcaption><h3>Le burger Tofu</h3></figcaption></a>
+    </figure>
+
+    <figure>
+        <a href = "#">
+            <img src="Images/pexels-shameel-mukkath-5640015.jpg" alt=""  style="width:100%">
+            <figcaption><h3>La pizza VG</h3></figcaption></a>
+    </figure>
+
+
+    <figure>
+        <a href = "#">
+            <img src="Images/pexels-klaus-nielsen-6287527.jpg" alt=""  style="width:100%">
+            <figcaption><h3>Les nouilles Chinoise</h3></figcaption></a>
+    </figure>
+
+    <figure>
+        <a href = "#">
+            <img src="Images/chocolate-dessert-brownies-cake.webp" alt=""  style="width:100%">
+            <figcaption><h3>Brownie</h3></figcaption></a>
+    </figure>
+
+    <figure>
+        <a href = "#">
+            <img src= "Images/pexels-photo-1833332.webp " alt="" style="width:100%"  >
+            <figcaption><h3>Salade de fruits</h3></figcaption></a>
+    </figure>
+
+
+
+
+
+
     <footer class="site-footer">
 
         <div class="address-horaires">
@@ -31,7 +75,61 @@
                 19h00-22h00</h5>
         </div>
     </footer>
+    <style>
 
+        body
+        {
+          background-image:url("Images/pexels-oruri-jacome-9482636.jpg");
+
+        }
+
+      a
+      {
+          color:black;
+      }
+        figure img
+        {
+            display: flex;
+            justify-content: center;
+            object-fit: contain;
+
+        }
+
+        figure
+        {
+            display: flex;
+            justify-content: center;
+            height: 700px;
+            width : 700px;
+        }
+
+      .site-footer
+      {
+          display:flex;
+          background-color: bisque;
+          justify-content: center;
+          height:300px;
+      }
+
+      .address-horaires h4
+      {
+          display:flex;
+          justify-content:center;
+          flex-direction: column;
+          width:70%;
+
+      }
+
+      h5, h4
+      {
+          display:flex;
+          justify-content: center;
+          text-align: right;
+      }
+
+
+
+    </style>
     {% endblock %}
-</div>
-{% endblock %}
+
+

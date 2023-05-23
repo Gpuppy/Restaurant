@@ -20,8 +20,8 @@ class Meals
     #[ORM\GeneratedValue]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $title = null;
+    /*#[ORM\Column(length: 255)]
+    private ?string $title = null;*/
 
     #[Vich\UploadableField(mapping: 'meals', fileNameProperty: 'imageName', size: 'imageSize')]
     private ?File $imageFile = null;
@@ -34,22 +34,27 @@ class Meals
     #[ORM\Column(nullable: true)]
     private ?int $imageSize = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $createdAt = null;
+    /*#[ORM\Column(length: 255)]
+    private ?string $name = null;*/
+
+    /*#[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $created_at = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $updated_at = null;
+    private ?\DateTimeInterface $updated_at = null;*/
 
     #[ORM\Column]
     private ?int $price = null;
 
+    #[ORM\Column()]
+    private ?int $date = null ;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $createdAt = null;
     #[ORM\Column]
-    private ?int $date = null;
+    private ?\DateTimeInterface $getUpdatedAt;
 
 
-    //public $timestamps = false;
 
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
@@ -70,6 +75,18 @@ class Meals
             $this->updated_at = new \DateTimeImmutable('now');
         }
     }
+
+    /*public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }*/
 
     public function getImageFile(): ?File
     {
@@ -142,18 +159,6 @@ class Meals
     public function setUpdatedAt(?\DateTimeImmutable $updated_at): self
     {
         $this->updated_at = $updated_at;
-        return $this;
-    }
-
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
-
-    public function setTitle(string $title): self
-    {
-        $this->title = $title;
-
         return $this;
     }
 
