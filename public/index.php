@@ -18,3 +18,17 @@ $active_group = 'default';
 $query_builder = TRUE;
 // Connect to DB
 $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+
+
+$app->get('/db', function(Request $request, Response $response, LoggerInterface $logger, Twig $twig, PDO $pdo) {
+    $st = $pdo->prepare('SELECT name FROM test_table');
+    $st->execute();
+    $names = array();
+    while($row = $st->fetch(PDO::FETCH_ASSOC)) {
+        $logger->debug('Row ' . $row['name']);
+        $names[] = $row;
+    }
+    return $twig->render($response, 'database.twig', [
+        'names' => $names,
+    ]);
+});
