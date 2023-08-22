@@ -53,7 +53,7 @@
         "vich/uploader-bundle": "^2.1"
     },
     "require-dev": {
-
+        "heroku/heroku-buildpack-php": "^231.0",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "6.1.*",
         "symfony/css-selector": "6.1.*",
@@ -61,8 +61,7 @@
         "symfony/maker-bundle": "^1.0",
         "symfony/phpunit-bridge": "^6.2",
         "symfony/stopwatch": "6.1.*",
-        "symfony/web-profiler-bundle": "6.1.*",
-        "heroku/heroku-buildpack-php": "^231.0"
+        "symfony/web-profiler-bundle": "6.1.*"
     },
     "config": {
         "allow-plugins": {
