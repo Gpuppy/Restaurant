@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints\Date;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\DBAL\Types\Types;
-use function Webmozart\Assert\Tests\StaticAnalysis\integer;
+
 
 #[ORM\Entity(repositoryClass: MealsRepository::class)]
 #[Vich\Uploadable]
@@ -20,16 +20,19 @@ class Meals
     #[ORM\GeneratedValue]
     private ?int $id = null;
 
-    /*#[ORM\Column(length: 255)]
-    private ?string $title = null;*/
+    #[ORM\Column(length: 255)]
+    private ?string $title = null;
 
     #[Vich\UploadableField(mapping: 'meals', fileNameProperty: 'imageName', size: 'imageSize')]
     private ?File $imageFile = null;
 
     #[ORM\Column(nullable: true)]
-    private ?string $meals = null;
-    #[ORM\Column(nullable: true)]
     private ?string $imageName = null;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     #[ORM\Column(nullable: true)]
     private ?int $imageSize = null;
@@ -37,23 +40,16 @@ class Meals
     /*#[ORM\Column(length: 255)]
     private ?string $name = null;*/
 
-    /*#[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $created_at = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $updated_at = null;*/
 
     #[ORM\Column]
     private ?int $price = null;
 
-    #[ORM\Column()]
-    private ?int $date = null ;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $createdAt = null;
-    #[ORM\Column]
-    private ?\DateTimeInterface $getUpdatedAt;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $updated_at = null;
 
 
     /**
@@ -76,7 +72,7 @@ class Meals
         }
     }
 
-    /*public function getTitle(): ?string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
@@ -86,7 +82,7 @@ class Meals
         $this->title = $title;
 
         return $this;
-    }*/
+    }
 
     public function getImageFile(): ?File
     {
@@ -113,7 +109,6 @@ class Meals
     {
         return $this->imageSize;
     }
-
 
 
     public function getMeals(): ?string

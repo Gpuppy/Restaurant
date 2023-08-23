@@ -392,7 +392,6 @@
         width: 300px;
         object-fit: contain;
         border-radius:5%;
-        box-shadow:10em;
     }
 
     .content h3
@@ -418,13 +417,6 @@
         display:flex;
     }
 
-    .address
-    {
-        display: flex;
-        justify-content: center;
-        flex-direction:center;
-        width:500px;
-    }
 
     .address-horaires
     {
@@ -474,17 +466,24 @@
     @media screen and (max-width: 900px)
     {
 
+        .nav-bar
+        {
+            width:100%;
+        }
+
         .nav-bar a
         {
             font-size: 1.2em; /*25px; */
             margin-left: 4px;
             margin-right: 4px;
+
         }
 
         .menu
         {
             font-size: 0.5em
         }
+
 
         .meal1
         {
@@ -501,6 +500,13 @@
 
         .Intro
         {
+            /*display:flex;
+            justify-content: center;*/
+
+        }
+
+        h1
+        {
             display:flex;
             justify-content: center;
         }
@@ -516,6 +522,11 @@
             height:600px ;
         }
 
+        .favoris
+        {
+            width:100%;
+
+        }
         .content
         {
             display: block;
@@ -540,7 +551,6 @@
 
         .map .iframe
         {
-            size: 20%;
             width:40%;
             margin-top:5px;
             margin-bottom:0px;
@@ -581,12 +591,13 @@
 
         .site-footer
         {
+            width:100%;
             height: 60px;
         }
         .site-footer .logo
         {
             height:60px ;
-            flex-direction: center;
+            /*flex-direction:center;*/
         }
 
         .site-footer .logo img
