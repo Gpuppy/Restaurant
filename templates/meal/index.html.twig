@@ -1,9 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MealsController!{% endblock %}
+{% block title %}Hello MealController!{% endblock %}
 
 
 {% block body %}
+
+    {#% for meal in meal %}
+        <div class="col pb-2 pb-sm-3">
+            <div class = "card-hover position-relative bg-secondary rounded-1 p-3 mb-4">
+                <img src="{{ vich_uploader_asset(vinyl, 'attachmentFile') }}" width ="400" height = "400" alt="{{ meal.attachment }}">
+
+                <div class = "d-flex mb-1">
+                    <h2>{{ meal.title }}</h2>
+                </div>
+
+                <h5 class = "fw-bold">{{ vinyl.meal }}</h5>
+
+                <div class = "d-flex align-items-center"> <strong>{{ (meal.price / 100)|number_format(2, ',', ',') }}</strong></div>
+
+            </div>
+        </div>
+
+    {% endfor %##}
 
 
 

@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\MealsRepository;
+use App\Repository\MealRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -11,9 +11,9 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\DBAL\Types\Types;
 
 
-#[ORM\Entity(repositoryClass: MealsRepository::class)]
+#[ORM\Entity(repositoryClass: MealRepository::class)]
 #[Vich\Uploadable]
-class Meals
+class Meal
 {
     #[ORM\Id]
     #[ORM\Column]
@@ -23,7 +23,7 @@ class Meals
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[Vich\UploadableField(mapping: 'meals', fileNameProperty: 'imageName', size: 'imageSize')]
+    #[Vich\UploadableField(mapping: 'meals', fileNameProperty: 'imageName', /*size: 'imageSize'*/)]
     private ?File $imageFile = null;
 
     #[ORM\Column(nullable: true)]
@@ -50,6 +50,10 @@ class Meals
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updated_at = null;
+
+    #[ORM\ManyToOne(inversedBy: 'vinyls')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?product $product = null;
 
 
     /**
@@ -100,7 +104,7 @@ class Meals
         return $this->imageName;
     }
 
-    public function setImageSize(?int $imageSize): void
+    /*public function setImageSize(?int $imageSize): void
     {
         $this->imageSize = $imageSize;
     }
@@ -108,13 +112,13 @@ class Meals
     public function getImageSize(): ?int
     {
         return $this->imageSize;
-    }
+    }*/
 
 
-    public function getMeals(): ?string
+    /*public function getMeal(): ?string
     {
-        return $this->meals;
-    }
+        return $this->meal;
+    }*/
 
 
     public function getPrice(): ?float
@@ -154,6 +158,18 @@ class Meals
     public function setUpdatedAt(?\DateTimeImmutable $updated_at): self
     {
         $this->updated_at = $updated_at;
+        return $this;
+    }
+
+    public function getProduct(): ?Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?Product $product): static
+    {
+        $this->product = $product;
+
         return $this;
     }
 

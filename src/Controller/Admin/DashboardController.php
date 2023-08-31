@@ -3,8 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Booking;
-use App\Entity\Meals;
-use App\Entity\MealsImage;
+use App\Entity\Meal;
+/*use App\Entity\MealImage; */
+use App\Entity\Product;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -30,7 +31,8 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Users', 'fa-solid fa-user', User::class);
-        yield MenuItem::linkToCrud('Meals', 'fas fa-bowl-rice', Meals::class);
+        yield MenuItem::linkToCrud('Meal', 'fas fa-bowl-rice', Meal::class);
+        yield MenuItem::linkToCrud('Product', 'fa-regular fa-tower-observation', Product::class);
         yield MenuItem::linkToCrud('Booking', 'fa-regular fa-tower-observation', Booking::class);
     }
 }
