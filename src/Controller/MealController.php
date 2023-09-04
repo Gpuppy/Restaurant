@@ -15,4 +15,17 @@ class MealController extends AbstractController
             'controller_name' => 'MealController',
         ]);
     }
+    #[Route('/meal/new')]
+    public function create(Request $request): Response
+    {
+        $meal = new Meal();
+        $form = $this->createForm(MealType::class, $meal);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+dump($meal);
+        }
+        return $this->render('meal/index.html.twig', [
+        "meal_form"=>$meal->createView()
+    ]);
+        }
 }

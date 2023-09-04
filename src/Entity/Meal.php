@@ -37,8 +37,8 @@ class Meal
     #[ORM\Column(nullable: true)]
     private ?int $imageSize = null;
 
-    /*#[ORM\Column(length: 255)]
-    private ?string $name = null;*/
+    ##[ORM\Column(length: 255)]
+    /*private ?string $name = null;*/
 
 
     #[ORM\Column]
@@ -46,14 +46,14 @@ class Meal
 
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $createdAt = null;
+    private ?\DateTimeInterface $createdAt = null ;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updated_at = null;
 
-    #[ORM\ManyToOne(inversedBy: 'vinyls')]
+    #[ORM\ManyToOne(inversedBy: 'meals')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?product $product = null;
+    private ?Product $product = null;
 
 
     /**

@@ -26,7 +26,7 @@ class MealCrudController extends AbstractCrudController
         yield TextareaField::new('imageFile')->setFormType(VichImageType::class)->hideOnIndex();
         yield AssociationField::new('product');
         //yield TextField::new('imageSize')->hideOnForm() ;
-        yield ImageField::new('imageName')->setBasePath('meal/images')->hideOnForm();
+        yield ImageField::new('imageName')->setBasePath('meals/images')->hideOnForm();
         yield DateTimeField ::new('created_at');
         yield DateTimeField ::new('updated_at');
         yield MoneyField::new('price')->setCurrency('EUR');

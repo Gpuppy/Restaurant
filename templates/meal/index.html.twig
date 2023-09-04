@@ -4,24 +4,25 @@
 
 
 {% block body %}
+    {% for meal in meals %}
+    <img src="{{ vich_uploader_asset(meal, 'imageFile') }}" width ="400" height = "400" alt="{{ meal.File }}">
 
-    {#% for meal in meal %}
         <div class="col pb-2 pb-sm-3">
             <div class = "card-hover position-relative bg-secondary rounded-1 p-3 mb-4">
-                <img src="{{ vich_uploader_asset(vinyl, 'attachmentFile') }}" width ="400" height = "400" alt="{{ meal.attachment }}">
+
 
                 <div class = "d-flex mb-1">
                     <h2>{{ meal.title }}</h2>
                 </div>
 
-                <h5 class = "fw-bold">{{ vinyl.meal }}</h5>
+                <h5 class = "fw-bold">{{ restaurant.meal }}</h5>
 
                 <div class = "d-flex align-items-center"> <strong>{{ (meal.price / 100)|number_format(2, ',', ',') }}</strong></div>
 
             </div>
         </div>
 
-    {% endfor %##}
+    {% endfor %}
 
 
 
@@ -97,7 +98,7 @@
 
         body
         {
-          background-image:url("Images/pexels-oruri-jacome-9482636.jpg");
+          background-image:url("images/pexels-oruri-jacome-9482636.jpg");
 
         }
 
