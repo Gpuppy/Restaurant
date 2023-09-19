@@ -34,12 +34,6 @@ class Meal
         return $this->id;
     }
 
-    #[ORM\Column(nullable: true)]
-    private ?int $imageSize = null;
-
-    ##[ORM\Column(length: 255)]
-    /*private ?string $name = null;*/
-
 
     #[ORM\Column]
     private ?int $price = null;
@@ -65,7 +59,7 @@ class Meal
      *
      * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
      */
-    public function setImageFile(?File $imageFile = null): void
+   public function setImageFile(?File $imageFile = null): void
     {
         $this->imageFile = $imageFile;
 
@@ -74,6 +68,21 @@ class Meal
             // otherwise the event listeners won't be called and the file is lost
             $this->updated_at = new \DateTimeImmutable('now');
         }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageName(?string $imageName): void
+    {
+        $this->imageName = $imageName;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
     }
 
     public function getTitle(): ?string
@@ -87,39 +96,6 @@ class Meal
 
         return $this;
     }
-
-    public function getImageFile(): ?File
-    {
-        return $this->imageFile;
-    }
-
-
-    public function setImageName(?string $imageName): void
-    {
-        $this->imageName = $imageName;
-    }
-
-    public function getImageName(): ?string
-    {
-        return $this->imageName;
-    }
-
-    /*public function setImageSize(?int $imageSize): void
-    {
-        $this->imageSize = $imageSize;
-    }
-
-    public function getImageSize(): ?int
-    {
-        return $this->imageSize;
-    }*/
-
-
-    /*public function getMeal(): ?string
-    {
-        return $this->meal;
-    }*/
-
 
     public function getPrice(): ?float
     {

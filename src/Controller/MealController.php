@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Meal;
+use http\Client\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,11 +23,11 @@ class MealController extends AbstractController
         $meal = new Meal();
         $form = $this->createForm(MealType::class, $meal);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()){
-dump($meal);
+        if ($form->isSubmitted() && $form->isValid()) {
+            dump($meal);
         }
         return $this->render('meal/index.html.twig', [
-        "meal_form"=>$meal->createView()
-    ]);
-        }
-}
+            "meal_form" => $meal->createView()
+        ]);
+
+    }}

@@ -12,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Vich\UploaderBundle\Mapping\Annotation\UploadableField;
+use Doctrine\Tests\Models\DirectoryTree\File;
 
 class MealCrudController extends AbstractCrudController
 {
@@ -23,10 +24,10 @@ class MealCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield TextareaField::new('title');
-        yield TextareaField::new('imageFile')->setFormType(VichImageType::class)->hideOnIndex();
         yield AssociationField::new('product');
-        //yield TextField::new('imageSize')->hideOnForm() ;
-        yield ImageField::new('imageName')->setBasePath('meals/images')->hideOnForm();
+        yield TextField::new('imageName')->setFormType(VichImageType::class)->hideOnIndex();
+        yield ImageField::new('imageName')->setBasePath('Images')->setUploadDir('public/images')/*->hideOnForm()*/;
+        //yield ImageField::new('imageFile')->setBasePath('meals/images')->setUploadDir('public/images');
         yield DateTimeField ::new('created_at');
         yield DateTimeField ::new('updated_at');
         yield MoneyField::new('price')->setCurrency('EUR');
@@ -44,3 +45,4 @@ class MealCrudController extends AbstractCrudController
 
 
 }
+
