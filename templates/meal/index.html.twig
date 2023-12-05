@@ -1,12 +1,12 @@
-{% extends 'base.html.twig' %}
+{ % extends 'base.html.twig' %}
 
 {% block title %}Hello MealController!{% endblock %}
 
 {% block body %}
 
-    {# % for meal in meals % #}
+    { % for meal in meals % }
 
-    <img src="{{ vich_uploader_asset(images, 'imageNamee') }}" width ="400" height = "400" alt="{{ meal.file }}">
+    <img src="{{ vich_uploader_asset(meal,'imageName') }}" width ="400" height = "400" alt="{{ meal.file }}">
 
         <div class="col pb-2 pb-sm-3">
             <div class = "card-hover position-relative bg-secondary rounded-1 p-3 mb-4">
@@ -23,7 +23,7 @@
             </div>
         </div>
 
-    {# %endfor% #}
+    { %endfor% }
 
 
 

@@ -7,6 +7,9 @@ use http\Client\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class MealController extends AbstractController
 {
@@ -17,8 +20,8 @@ class MealController extends AbstractController
             'controller_name' => 'MealController',
         ]);
     }
-    #[Route('/meal/new')]
-    public function create(Request $request): Response
+    ##[Route('/meal/new')]
+    /*public function create(Request $request): Response
     {
         $meal = new Meal();
         $form = $this->createForm(MealType::class, $meal);
@@ -30,4 +33,4 @@ class MealController extends AbstractController
             "meal_form" => $meal->createView()
         ]);
 
-    }}
+    }*/}

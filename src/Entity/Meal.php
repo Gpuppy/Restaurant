@@ -5,10 +5,9 @@ namespace App\Entity;
 use App\Repository\MealRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\Validator\Constraints\Date;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\DBAL\Types\Types;
+use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 
 #[ORM\Entity(repositoryClass: MealRepository::class)]
@@ -29,12 +28,6 @@ class Meal
     #[ORM\Column(nullable: true)]
     private ?string $imageName = null;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-
     #[ORM\Column]
     private ?int $price = null;
 
@@ -49,6 +42,10 @@ class Meal
     #[ORM\JoinColumn(nullable: false)]
     private ?Product $product = null;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
