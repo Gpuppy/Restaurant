@@ -1,5 +1,5 @@
 # Restaurant
-Restaurant Emy&amp;Tom, cuisine végétal
+Restaurant Quai Antique a l'issue de mon ECF cuisine végétal
 
 ## Prérequis
 Afin de pouvoir exécuter l'application sur votre poste, vous devez d'aborder installer les dépendances suivantes :
